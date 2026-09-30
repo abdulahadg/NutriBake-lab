@@ -45,38 +45,38 @@ export const DietarySettingsEditor: React.FC = () => {
   return (
     <div className="space-y-10 animate-in fade-in duration-200">
       {/* Settings Form */}
-      <form onSubmit={handleSave} className="bg-white border border-[#3A2721]/15 p-4 sm:p-8 space-y-8">
-        <div className="border-b border-[#3A2721]/10 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <form onSubmit={handleSave} className="bg-white border border-[#3A2721]/15 p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8">
+        <div className="border-b border-[#3A2721]/10 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
           <div>
             <span className="font-mono text-[10px] uppercase tracking-editorial font-bold text-[#657258] block">
               Metabolic Calibration
             </span>
-            <h3 className="font-serif text-2xl sm:text-3xl text-[#3A2721] font-normal tracking-snug-title break-words">
+            <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl text-[#3A2721] font-normal tracking-snug-title break-words">
               Dietary Protocol & Clinical Parameters
             </h3>
           </div>
           <button
             type="submit"
-            className="px-6 py-2.5 bg-[#3A2721] hover:bg-[#2A1C18] text-[#FAF5ED] text-xs font-mono uppercase tracking-editorial font-semibold transition-colors flex items-center gap-2 self-start sm:self-auto shrink-0"
+            className="w-full sm:w-auto px-5 sm:px-6 py-2.5 min-h-[38px] bg-[#3A2721] hover:bg-[#2A1C18] text-[#FAF5ED] text-xs font-mono uppercase tracking-editorial font-semibold transition-colors flex items-center justify-center gap-2 self-start sm:self-auto shrink-0 text-center"
           >
             <Check className="w-4 h-4" />
             <span>Update Parameters</span>
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Fiber Target */}
           <div className="space-y-4">
             <div>
               <label className="font-mono text-[10.5px] uppercase tracking-editorial font-bold text-[#3A2721] block">
                 Daily Dietary Fiber Target (Grams / Day)
               </label>
-              <p className="text-xs text-[#29211E]/70 mt-0.5">
+              <p className="text-xs text-[#29211E]/70 mt-0.5 break-words">
                 Clinical trials at University of Sindh calibrate 28g–35g/day for optimal butyrate production.
               </p>
             </div>
 
-            <div className="flex items-center gap-4 bg-[#FAF5ED] p-4 border border-[#3A2721]/10">
+            <div className="flex items-center gap-3 sm:gap-4 bg-[#FAF5ED] p-3 sm:p-4 border border-[#3A2721]/10">
               <input
                 type="range"
                 min="20"
@@ -86,7 +86,7 @@ export const DietarySettingsEditor: React.FC = () => {
                 onChange={e => setFiberTarget(Number(e.target.value))}
                 className="flex-1 accent-[#3A2721]"
               />
-              <span className="font-serif text-3xl text-[#657258] font-bold w-16 text-right">
+              <span className="font-serif text-2xl sm:text-3xl text-[#657258] font-bold w-16 text-right shrink-0">
                 {fiberTarget}g
               </span>
             </div>
@@ -98,7 +98,7 @@ export const DietarySettingsEditor: React.FC = () => {
               <label className="font-mono text-[10.5px] uppercase tracking-editorial font-bold text-[#3A2721] block">
                 Primary Metabolic Protocol
               </label>
-              <p className="text-xs text-[#29211E]/70 mt-0.5">
+              <p className="text-xs text-[#29211E]/70 mt-0.5 break-words">
                 Align recommendations with your continuous glucose and gut microbiome goals.
               </p>
             </div>
@@ -106,7 +106,7 @@ export const DietarySettingsEditor: React.FC = () => {
             <select
               value={dietaryGoal}
               onChange={e => setDietaryGoal(e.target.value)}
-              className="w-full p-3.5 bg-[#FAF5ED] border border-[#3A2721]/20 font-mono text-xs text-[#3A2721] font-semibold"
+              className="w-full p-2.5 sm:p-3.5 bg-[#FAF5ED] border border-[#3A2721]/20 font-mono text-xs text-[#3A2721] font-semibold focus:outline-none focus:border-[#3A2721]"
             >
               <option value="High Fiber & Gut Vitality">High Fiber & Gut Vitality (Microbiome Priority)</option>
               <option value="Low Glycemic Blood Sugar Balance">Low Glycemic Blood Sugar Balance (Type 2 / Pre-diabetes)</option>
@@ -122,16 +122,16 @@ export const DietarySettingsEditor: React.FC = () => {
           <label className="font-mono text-[10.5px] uppercase tracking-editorial font-bold text-[#3A2721] block">
             Exclusionary Allergen Flags
           </label>
-          <p className="text-xs text-[#29211E]/70">
+          <p className="text-xs text-[#29211E]/70 break-words">
             Formulations containing checked allergens will be highlighted with red warnings in your catalog.
           </p>
-          <div className="flex flex-wrap gap-2.5 pt-1">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2.5 pt-1">
             {allergenList.map((item) => (
               <button
                 key={item}
                 type="button"
                 onClick={() => toggleAllergen(item)}
-                className={`px-3 py-1.5 font-mono text-xs border transition-colors ${
+                className={`px-3 py-1.5 min-h-[32px] font-mono text-xs border transition-colors ${
                   allergens.includes(item)
                     ? 'bg-rose-100 border-rose-400 text-rose-800 font-bold'
                     : 'bg-[#FAF5ED] border-[#3A2721]/20 text-[#29211E]/70 hover:border-[#3A2721]'
@@ -145,23 +145,23 @@ export const DietarySettingsEditor: React.FC = () => {
       </form>
 
       {/* Clinical Summary Report Card */}
-      <div className="bg-[#FAF5ED] border border-[#3A2721]/15 p-4 sm:p-8 space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#3A2721]/10 pb-4">
+      <div className="bg-[#FAF5ED] border border-[#3A2721]/15 p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-[#3A2721]/10 pb-4">
           <div>
             <span className="font-mono text-[10px] uppercase tracking-editorial font-bold text-[#657258] block">
               Clinical Export
             </span>
-            <h4 className="font-serif text-2xl text-[#3A2721] font-normal">
+            <h4 className="font-serif text-xl sm:text-2xl text-[#3A2721] font-normal break-words">
               Physician & Nutritionist Report Sheet
             </h4>
-            <p className="font-mono text-xs text-[#29211E]/70 mt-1">
+            <p className="font-mono text-xs text-[#29211E]/70 mt-1 break-words">
               Formatted patient summary for presentation at clinical or dietary consultations.
             </p>
           </div>
 
           <button
             onClick={handlePrintSummary}
-            className="px-4 py-2 border border-[#3A2721]/25 bg-white hover:bg-[#FAF5ED] text-[#3A2721] text-xs font-mono uppercase tracking-editorial font-semibold transition-colors flex items-center gap-2 self-start sm:self-auto shrink-0"
+            className="w-full sm:w-auto px-4 py-2 min-h-[38px] border border-[#3A2721]/25 bg-white hover:bg-[#FAF5ED] text-[#3A2721] text-xs font-mono uppercase tracking-editorial font-semibold transition-colors flex items-center justify-center gap-2 self-start sm:self-auto shrink-0 text-center"
           >
             <Printer className="w-3.5 h-3.5" />
             <span>Print Report Sheet</span>
@@ -169,21 +169,21 @@ export const DietarySettingsEditor: React.FC = () => {
         </div>
 
         {/* Printable Section */}
-        <div className="bg-white p-4 sm:p-6 border border-[#3A2721]/10 space-y-4 font-mono text-xs overflow-x-auto">
+        <div className="bg-white p-3.5 sm:p-6 border border-[#3A2721]/10 space-y-4 font-mono text-xs overflow-x-auto">
           <div className="flex flex-col sm:flex-row justify-between items-start border-b border-[#3A2721]/10 pb-3 gap-2">
             <div>
-              <p className="font-bold text-sm text-[#3A2721]">NutriBake Functional Formulation Patient Monograph</p>
+              <p className="font-bold text-sm text-[#3A2721] break-words">NutriBake Functional Formulation Patient Monograph</p>
               <p className="text-[#29211E]/60 text-[10.5px]">University of Sindh, Jamshoro • Dept of Nutrition & Food Science</p>
             </div>
-            <div className="text-left sm:text-right text-[10.5px] text-[#29211E]/60">
+            <div className="text-left sm:text-right text-[10.5px] text-[#29211E]/60 shrink-0">
               Date: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-2 border-b border-[#3A2721]/10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 py-2 border-b border-[#3A2721]/10">
             <div>
               <span className="text-[10px] uppercase text-[#29211E]/60 block">Patient Name</span>
-              <span className="font-bold text-[#3A2721]">{user?.name}</span>
+              <span className="font-bold text-[#3A2721] break-words">{user?.name}</span>
             </div>
             <div>
               <span className="text-[10px] uppercase text-[#29211E]/60 block">Fiber Target</span>
@@ -197,7 +197,7 @@ export const DietarySettingsEditor: React.FC = () => {
             </div>
             <div>
               <span className="text-[10px] uppercase text-[#29211E]/60 block">Allergen Flags</span>
-              <span className="font-bold text-rose-700">
+              <span className="font-bold text-rose-700 break-words">
                 {allergens.length > 0 ? allergens.join(', ') : 'None'}
               </span>
             </div>
@@ -209,7 +209,7 @@ export const DietarySettingsEditor: React.FC = () => {
             </span>
             <ul className="list-disc list-inside space-y-1 text-[#29211E]/80">
               {savedList.map(p => (
-                <li key={p.id}>
+                <li key={p.id} className="break-words">
                   <strong>{p.name}</strong> — {p.servingSize} (+{p.nutrition.dietaryFiberGrams}g fiber, {p.nutrition.resistantStarchGrams}g RS2, {p.nutrition.glycemicIndexEst} Est. GI)
                 </li>
               ))}

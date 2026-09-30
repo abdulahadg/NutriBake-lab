@@ -75,7 +75,7 @@ export const Navbar: React.FC = () => {
               : 'bg-[#FAF7F2]/90 py-4 border-b border-transparent'
         }`}
       >
-        <div className={`max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex items-center ${isPanelMode ? 'justify-start' : 'justify-between'}`}>
+        <div className={`max-w-7xl mx-auto px-3.5 sm:px-8 lg:px-12 flex items-center ${isPanelMode ? 'justify-start' : 'justify-between'}`}>
           {/* Left: Brand Wordmark with Theme Logo Design - Kept for all pages */}
           <button
             onClick={() => handleNavClick('home')}
