@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Remix Remix Remix Copy of Remix NutriBake",
+  "description": "Functional bakery products crafted with green banana flour, whole nuts, and prebiotic dietary fiber.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
